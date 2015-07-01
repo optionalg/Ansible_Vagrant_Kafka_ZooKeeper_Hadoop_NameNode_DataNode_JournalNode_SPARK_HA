@@ -1,0 +1,28 @@
+---
+
+# Zookeeper version
+zookeeper_version: "3.4.6"
+
+# Zookeeper user name
+zookeeper_user: "zookeeper"
+
+# Zookeeper path
+zookeeper_path: "/usr/local/zookeeper"
+
+# Zookeeper dataDir
+zookeeper_dataDir: "/usr/local/zookeeper/dataDir"
+
+# Zookeeper dataLogDir
+zookeeper_dataLogDir: "/usr/local/zookeeper/logDir"
+
+# Zookeeper tickTime
+zookeeper_tickTime: "2000"
+
+# Zookeeper initLimit
+zookeeper_initLimit: "10"
+
+# Zookeeper syncLimit
+zookeeper_syncLimit: "5"
+
+# Zookeeper user pub key
+zookeeper_pub_key: "xxxxxxxxxx"

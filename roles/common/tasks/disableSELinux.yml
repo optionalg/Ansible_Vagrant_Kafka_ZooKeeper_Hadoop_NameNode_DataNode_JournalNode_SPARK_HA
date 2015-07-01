@@ -1,0 +1,22 @@
+- name: Install Prereq for SELinux config file modification libselinux
+  yum: name=libselinux state=latest
+  tags:
+     - SELinux
+
+- name: Install Prereq for SELinux config file modification libselinux-python
+  yum: name=libselinux-python state=latest
+  tags:
+     - SELinux
+
+- name: Install Prereq for SELinux config file modification libselinux-utils
+  yum: name=libselinux-utils state=latest
+  tags:
+     - SELinux
+
+- name: Set running SELinux config as permissive
+  shell: echo 0 > /selinux/enforce
+
+- name: Set SELinux to disabled
+  selinux: state=disabled
+  tags:
+     - SELinux

@@ -1,0 +1,2 @@
+  # Run Kafka installation procedure
+  - include:  kafka.yml

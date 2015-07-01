@@ -1,0 +1,17 @@
+   - name: Make sure NTP has the lastest version installed
+     yum: name=ntp state=latest
+
+   - name: Run a manual NTP udpate
+     command: /usr/sbin/ntpdate -s -b -p 8 -u {{ ntp_server }}
+
+   - name: Make sure NTP is started
+     service: name=ntpd state=started
+
+   - name: Make sure NTP is enabled on boot
+     service: name=ntpd enabled=yes
+
+   - name: Make sure NTP is started
+     service: name=ntpd state=started
+
+   - name: set timezone to EST
+     file: src='/usr/share/zoneinfo/EST5EDT' dest='/etc/localtime' state='link' force='yes'

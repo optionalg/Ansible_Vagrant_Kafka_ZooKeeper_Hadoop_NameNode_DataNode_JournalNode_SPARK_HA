@@ -1,0 +1,11 @@
+---
+# Install Java JDK
+  - yum: name=java-1.7.0-openjdk state=latest
+    tags:
+      - java
+
+# Install Scala rpm from a remote repo
+  - yum: name=http://downloads.typesafe.com/scala/2.10.5/scala-2.10.5.rpm state=present
+    tags:
+      - scala
+      - kafka

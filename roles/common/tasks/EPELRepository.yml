@@ -1,0 +1,2 @@
+  - name: Instal EPEL Repository
+    yum: name=epel-release state=latest

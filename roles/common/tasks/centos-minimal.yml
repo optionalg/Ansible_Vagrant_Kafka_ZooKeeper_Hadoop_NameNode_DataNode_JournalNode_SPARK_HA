@@ -1,0 +1,39 @@
+  - name: Make sure the lastest version is installed for minimal packages (yum-utils, mlocate, gpgme, sudo, man, openssh, wget, bzip2)
+    yum: name={{ item }} state=latest
+    with_items:
+
+      # utilities based around the yum package manager
+      - yum-utils
+
+      # utility to find files anywhere in the filesystem based on their name by using a previously created database to perform the search
+      - mlocate
+
+      # GnuPG Made Easy - high level crypto API
+      - gpgme
+
+      # allows restricted root access for specified users
+      - sudo
+
+      # set of documentation tools: man, apropos and whatis
+      - man
+
+      # an open source implementation of SSH protocol versions 1 and 2
+      - openssh
+
+      # utility for retrieving files using the HTTP or FTP protocols
+      - wget
+
+      # file compression utility
+      - bzip2
+
+      # IT common
+      - git
+      - htop
+      - logrotate
+      - nmap
+      - ntp
+      - python-boto
+      - telnet
+      - vim
+      - zabbix-agent
+      - zip

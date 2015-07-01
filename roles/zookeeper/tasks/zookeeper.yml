@@ -1,0 +1,50 @@
+---
+#mkdir -p /var/lib/zookeeper/myid
+#mkdir -p /opt/zookeeper/data/ echo 1 > /opt/zookeeper/data/myid
+
+# Add the user "{{ zookeeper_user }}" with a bash shell, appending the group "{{ zookeeper_user }}" and 'wheel' to the user's groups
+- user: name={{ zookeeper_user }} shell=/bin/bash groups={{ zookeeper_user }},wheel append=yes createhome=yes comment={{ zookeeper_user }}
+  tags:
+     - createusers
+     - zookeeper
+
+- name: Copy the authorized_keys2 file for Zookeeper
+  action: authorized_key user={{ zookeeper_user }} key={{ zookeeper_pub_key }}
+  tags:
+     - createusers
+     - zookeeper
+     
+# Download and Unarchive a ZooKeeper tar file
+- unarchive: src=http://archive.apache.org/dist/zookeeper/stable/zookeeper-{{ zookeeper_version }}.tar.gz dest={{ zookeeper_path }}-{{ zookeeper_version }} copy=no
+  tags:
+     - zookeeper
+
+# create a "{{ zookeeper_path }}" directory if it doesn't exist
+- file: path={{ item }} state=directory
+  with_items:
+    - "{{ zookeeper_path }}"
+    - "{{ zookeeper_dataDir }}"
+    - "{{ zookeeper_dataLogDir }}"
+  tags:
+     - zookeeper
+
+# Create Soft link for "{{ zookeeper_path }}"-"{{ zookeeper_version }}" --> "{{ zookeeper_path }}"
+- name: Create symlink
+  file: src={{ zookeeper_path }}-{{ zookeeper_version }} dest={{ zookeeper_path }} state=link
+  tags:
+     - zookeeper
+
+# change file ownership, group and mode to "{{ zookeeper_user }}".
+- file: path={{ zookeeper_path }} owner={{ zookeeper_user }} group={{ zookeeper_user }} recurse=yes
+  tags:
+     - zookeeper
+
+# Upload Zookeeper cfg
+- template: src=../templates/zoo.cfg.j2 dest={{ zookeeper_path }}/zoo.cfg
+  tags:
+     - zookeeper
+
+# Start Zookeeper service
+- shell: "{{ zookeeper_path }}/bin/zkServer.sh start"
+  tags:
+     - zookeeper

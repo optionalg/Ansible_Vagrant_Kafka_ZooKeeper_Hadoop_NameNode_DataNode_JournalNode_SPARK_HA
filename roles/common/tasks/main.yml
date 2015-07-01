@@ -1,0 +1,20 @@
+  # update the operating system to have the latest packages of whatever is already installed
+  - include:  OS.yml
+
+  # synchronize the system clock
+  - include:  ntp.yml
+
+  # turn off the Linux kernel security module
+  - include:  disableSELinux.yml
+
+  # add support for EPEL & REMI repositories (depends on wget, which is installed during centos-minimal)
+  - include:  EPELRepository.yml
+
+  # install some utilities and tools needed on any distribution
+  - include:  centos-minimal.yml
+
+  # disable some unnecessary services that are not needed
+  - include:  disableUnnecessaryServices.yml
+
+  # install Java JDK
+  - include:  java.yml

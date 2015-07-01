@@ -1,0 +1,281 @@
+  - name: Disable bluetooh in chkconfig and stop the service from running
+    service: name=bluetooth state=stopped enabled=no
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: Disable haldaemon in chkconfig and stop the service from running
+    service: name=haldaemon state=stopped enabled=no
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: Disable hidd in chkconfig and stop the service from running
+    service: name=hidd state=stopped enabled=no
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: Disable portmap in chkconfig and stop the service from running
+    service: name=portmap state=stopped enabled=no
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: Disable autofs in chkconfig and stop the service from running
+    service: name=autofs state=stopped enabled=no
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: no cpuspeed
+    service: name=cpuspeed state=stopped enabled=no
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: no restorecond
+    service: name=restorecond state=stopped enabled=no
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: no firstboot
+    service: name=firstboot enabled=no
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: no avahi-daemon
+    service: name=avahi-daemon enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: no avahi-dnsconfd
+    service: name=avahi-dnsconfd enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: no gpm
+    service: name=gpm enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: no kudzu
+    service: name=kudzu enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: no mcstrans
+    service: name=mcstrans enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: no multipathd
+    service: name=multipathd enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: no netconsole
+    service: name=netconsole enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: no netfs
+    service: name=netfs enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: no netplugd
+    service: name=netplugd enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: no iscsi
+    service: name=iscsi enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: no iscsid
+    service: name=iscsid enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: no pcscd
+    service: name=pcscd enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: no yum-updatesd
+    service: name=yum-updatesd enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: no rpcgssd
+    service: name=rpcgssd enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: no rpcidmapd
+    service: name=rpcidmapd enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: no sendmail
+    service: name=sendmail enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: no setroubleshoot
+    service: name=setroubleshoot enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: no iscsi
+    service: name=iscsi enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: Disable iptables and stop the service
+    service: name=iptables enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: Disable ip6tables and stop the service
+    service: name=ip6tables enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: Disable nfslock and stop the service
+    service: name=nfslock enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: Disable rawdevices and stop the service
+    service: name=rawdevices enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: Disable postfix and stop the service
+    service: name=postfix enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: Disable abrt-ccpp and stop the service
+    service: name=abrt-ccpp enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: Disable abrt-oops and stop the service
+    service: name=abrt-oops enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: Disable abrtd and stop the service
+    service: name=abrtd enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: Disable psacct and stop the service
+    service: name=psacct enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: Disable rdisc and stop the service
+    service: name=rdisc enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: Disable saslauthd and stop the service
+    service: name=saslauthd enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: Disable readahead_early and stop the service
+    service: name=readahead_early enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: Disable readahead_later and stop the service
+    service: name=readahead_later enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: Disable Automatic Bug Reporting Tool (C/C++ problems analyzer) and stop the service
+    service: name=abrt-ccpp enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: Disable Automatic Bug Reporting Tool (Kernel oopses analyzer) and stop the service
+    service: name=abrt-oops enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: Disable ACPId and stop the service
+    service: name=acpid enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: Disable Automatic Bug Reporting Tool Deammon and stop the service
+    service: name=abrtd enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: Disable sysstat and stop the service
+    service: name=sysstat enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: Disable kdump and stop the service
+    service: name=kdump enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: Disable atd and stop the service
+    service: name=atd enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff
+
+  - name: Disable mdmonitor and stop the service
+    service: name=mdmonitor enabled=no state=stopped
+    ignore_errors: True
+    tags:
+        - chkconfigoff

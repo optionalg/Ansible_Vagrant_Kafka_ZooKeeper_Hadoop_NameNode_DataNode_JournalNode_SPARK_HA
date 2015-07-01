@@ -1,0 +1,29 @@
+# file: dev
+
+[HadoopNameNode]
+nn001 ansible_ssh_port=2204 ansible_ssh_host=127.0.0.1
+nn002 ansible_ssh_port=2205 ansible_ssh_host=127.0.0.1
+
+[HadoopJournalNode]
+nn001 ansible_ssh_port=2204 ansible_ssh_host=127.0.0.1
+nn002 ansible_ssh_port=2205 ansible_ssh_host=127.0.0.1
+
+[HadoopDataNode]
+dn001 ansible_ssh_port=2206 ansible_ssh_host=127.0.0.1
+dn002 ansible_ssh_port=2207 ansible_ssh_host=127.0.0.1
+dn003 ansible_ssh_port=2208 ansible_ssh_host=127.0.0.1
+
+[ZooKeeper]
+zk001 ansible_ssh_port=2201 ansible_ssh_host=127.0.0.1
+zk002 ansible_ssh_port=2202 ansible_ssh_host=127.0.0.1
+zk003 ansible_ssh_port=2203 ansible_ssh_host=127.0.0.1
+
+[Kafka]
+kk001 ansible_ssh_port=2201 ansible_ssh_host=127.0.0.1
+kk002 ansible_ssh_port=2202 ansible_ssh_host=127.0.0.1
+
+# Hadoop
+[Hadoop:children]
+HadoopNameNode
+HadoopJournalNode
+HadoopDataNode

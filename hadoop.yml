@@ -1,0 +1,6 @@
+---
+# file: hadoop.yml
+- hosts: Hadoop
+  roles:
+    - common
+    - hadoop

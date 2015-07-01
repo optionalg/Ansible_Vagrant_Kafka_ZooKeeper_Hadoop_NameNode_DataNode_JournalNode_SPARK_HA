@@ -1,0 +1,57 @@
+---
+# Add the user "{{ kafka_user }}" with a bash shell, appending the group "{{ kafka_user }}" and 'wheel' to the user's groups
+- user: name={{ kafka_user }} shell=/bin/bash groups={{ kafka_user }},wheel append=yes createhome=yes comment={{ kafka_user }}
+  tags:
+     - createusers
+     - kafka
+
+- name: Copy the authorized_keys2 file for Kafka
+  action: authorized_key user={{ kafka_user }} key={{ kafka_pub_key }}
+  tags:
+     - createusers
+     - kafka
+
+# Download and Unarchive a Kafka tar file
+- unarchive: src=http://apache.spd.co.il/kafka/{{ kafka_version }}/kafka_2.10-{{ kafka_version }}.tgz dest={{ kafka_path }}_2.10-{{ kafka_version }} copy=no
+  tags:
+     - kafka
+
+# create a "{{ kafka_path }}" directory if it doesn't exist
+- file: path={{ item }} state=directory
+  with_items:
+    - {{ kafka_path }}
+    - {{ kafka_logdirs }} # TEST
+  tags:
+     - kafka
+
+# Create Soft link for "{{ kafka_path }}"-2.10-"{{ kafka_version }}" --> "{{ kafka_path }}"
+- name: Create symlink
+  file: src={{ kafka_path }}_2.10-{{ kafka_version }}  dest={{ kafka_path }} state=link
+  tags:
+     - kafka
+
+# change file ownership, group and mode to "{{ kafka_user }}".
+- file: path={{ kafka_path }} owner={{ kafka_user }} group={{ kafka_user }} recurse=yes
+  tags:
+     - kafka
+
+# Initialize Kafa
+- command: "{{ kafka_path }}{{ item }}"
+  with_items:
+    - /sbt update
+    - /sbt package
+
+# Upload Kafka cfg
+- template: src=../templates/server.properties.j2 dest="{{ kafka_path }}"/config/server.properties
+  tags:
+     - kafka
+
+# Start Kafka service
+- shell: "{{ kafka_path }}/bin/kafka-server-start.sh {{ kafka_path }}/config/server.properties start"
+  tags:
+     - kafka
+
+# Start Kafka service as daemon
+#- shell: "{{ kafka_path }}/bin/kafka-server-start.sh -daemon {{ kafka_path }}/config/server.properties"
+#  tags:
+#     - kafka

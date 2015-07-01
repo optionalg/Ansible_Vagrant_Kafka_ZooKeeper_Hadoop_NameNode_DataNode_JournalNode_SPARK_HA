@@ -1,0 +1,7 @@
+  - name: Update all CentOS packages
+    yum: name=* state=latest
+
+  - name: Set Hostname
+    hostname: name={{ inventory_hostname }}
+    tags:
+       - Hostname
