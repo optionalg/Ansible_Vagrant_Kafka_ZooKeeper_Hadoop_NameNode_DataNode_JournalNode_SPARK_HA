@@ -11,7 +11,7 @@
      - zookeeper
 
 - name: Copy the authorized_keys2 file for Zookeeper
-  action: authorized_key user={{ zookeeper_user }} key={{ zookeeper_pub_key }}
+  action: authorized_key user={{ zookeeper_user }} key="{{ zookeeper_pub_key }}"
   tags:
      - createusers
      - zookeeper

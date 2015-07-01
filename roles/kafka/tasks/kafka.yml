@@ -9,7 +9,7 @@
      - kafka
 
 - name: Copy the authorized_keys2 file for Kafka
-  action: authorized_key user={{ kafka_user }} key={{ kafka_pub_key }}
+  action: authorized_key user={{ kafka_user }} key="{{ kafka_pub_key }}"
   tags:
      - createusers
      - kafka

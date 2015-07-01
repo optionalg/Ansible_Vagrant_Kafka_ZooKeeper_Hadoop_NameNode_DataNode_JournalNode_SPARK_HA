@@ -9,7 +9,7 @@
     - hadoop
 
 - name: Copy the authorized_keys2 file for Hadoop
-  action: authorized_key user={{ hadoop_user }} key={{ hadoop_pub_key }}
+  action: authorized_key user={{ hadoop_user }} key="{{ hadoop_pub_key }}"
   tags:
     - createusers
     - hadoop
