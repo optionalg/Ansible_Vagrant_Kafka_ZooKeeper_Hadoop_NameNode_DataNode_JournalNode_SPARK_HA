@@ -1,6 +1,8 @@
 ---
 #mkdir -p /var/lib/zookeeper/myid
 #mkdir -p /opt/zookeeper/data/ echo 1 > /opt/zookeeper/data/myid
+# Create {{ zookeeper_user }} group
+- group: name={{ zookeeper_user }} state=present
 
 # Add the user "{{ zookeeper_user }}" with a bash shell, appending the group "{{ zookeeper_user }}" and 'wheel' to the user's groups
 - user: name={{ zookeeper_user }} shell=/bin/bash groups={{ zookeeper_user }},wheel append=yes createhome=yes comment={{ zookeeper_user }}
@@ -13,7 +15,7 @@
   tags:
      - createusers
      - zookeeper
-     
+
 # Download and Unarchive a ZooKeeper tar file
 - unarchive: src=http://archive.apache.org/dist/zookeeper/stable/zookeeper-{{ zookeeper_version }}.tar.gz dest={{ zookeeper_path }}-{{ zookeeper_version }} copy=no
   tags:

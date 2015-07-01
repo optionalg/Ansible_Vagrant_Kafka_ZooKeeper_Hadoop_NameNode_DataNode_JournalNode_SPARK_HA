@@ -1,4 +1,7 @@
 ---
+# Create {{ hadoop_user }} group
+- group: name={{ hadoop_user }} state=present
+
 # Add the user "{{ hadoop_user }}" with a bash shell, appending the group "{{ hadoop_user }}" and 'wheel' to the user's groups
 - user: name={{ hadoop_user }} shell=/bin/bash groups={{ hadoop_user }},wheel append=yes createhome=yes comment={{ hadoop_user }}
   tags:

@@ -1,4 +1,7 @@
 ---
+# Create {{ kafka_user }} group
+- group: name={{ kafka_user }} state=present
+
 # Add the user "{{ kafka_user }}" with a bash shell, appending the group "{{ kafka_user }}" and 'wheel' to the user's groups
 - user: name={{ kafka_user }} shell=/bin/bash groups={{ kafka_user }},wheel append=yes createhome=yes comment={{ kafka_user }}
   tags:
