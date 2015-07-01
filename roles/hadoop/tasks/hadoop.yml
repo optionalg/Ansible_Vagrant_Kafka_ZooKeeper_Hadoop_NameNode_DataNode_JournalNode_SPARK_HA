@@ -14,13 +14,16 @@
     - createusers
     - hadoop
 
-# Download and Unarchive a Hadoop tar file
-- unarchive: src=http://apache.mirrors.spacedump.net/hadoop/common/stable/hadoop-{{ hadoop_version }}.tar.gz dest={{ hadoop_path }} copy=no
+# create a "{{ hadoop_path }}" directory if it doesn't exist
+- file: path={{ item }} state=directory
+  with_items:
+    - "{{ hadoop_tar }}"
+    - "{{ hadoop_path }}"
   tags:
     - hadoop
 
-# create a "{{ hadoop_path }}" directory if it doesn't exist
-- file: path={{ hadoop_path }} state=directory
+# Download and Unarchive a Hadoop tar file
+- unarchive: src=http://apache.mirrors.spacedump.net/hadoop/common/stable/hadoop-{{ hadoop_version }}.tar.gz dest={{ hadoop_tar }} copy=no
   tags:
     - hadoop
 

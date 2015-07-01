@@ -16,17 +16,18 @@
      - createusers
      - zookeeper
 
-# Download and Unarchive a ZooKeeper tar file
-- unarchive: src=http://archive.apache.org/dist/zookeeper/stable/zookeeper-{{ zookeeper_version }}.tar.gz dest={{ zookeeper_path }} copy=no
-  tags:
-     - zookeeper
-
 # create a "{{ zookeeper_path }}" directory if it doesn't exist
 - file: path={{ item }} state=directory
   with_items:
+    - "{{ zookeeper_tar }}"
     - "{{ zookeeper_path }}"
     - "{{ zookeeper_dataDir }}"
     - "{{ zookeeper_dataLogDir }}"
+  tags:
+     - zookeeper
+
+# Download and Unarchive a ZooKeeper tar file
+- unarchive: src=http://archive.apache.org/dist/zookeeper/stable/zookeeper-{{ zookeeper_version }}.tar.gz dest={{ zookeeper_tar }} copy=no
   tags:
      - zookeeper
 

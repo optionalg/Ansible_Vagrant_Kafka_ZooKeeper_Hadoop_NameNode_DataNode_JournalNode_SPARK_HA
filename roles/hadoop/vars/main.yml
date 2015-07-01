@@ -9,8 +9,11 @@ hadoop_user: "hadoop"
 # Hadoop path
 hadoop_path: "/usr/local/hadoop"
 
+# Hadoop tar
+hadoop_tar: "/usr/local/hadoop-{{ hadoop_version }}"
+
 # Hadoop user pub key
-hadoop_pub_key: "xxxxxxxxxx"
+hadoop_pub_key: "xxxxxxxx"
 
 # Hadoop Name services
 hadoop_nameservices: "HadoopCluster"
@@ -34,22 +37,22 @@ dhadoop_datanode_diratanode: "/usr/local/hadoop/datanode/datanodedir"
 hadoop_resourcemanager: "HadoopYarn"
 
 # Hadoop Node Manager vcores
-hadoop_nodemanager_cpu: "1" #2
+hadoop_nodemanager_cpu: "1" # 2
 
 # Hadoop Node Manager RAM (MB)
-hadoop_nodemanager_ram: "256" #1024
+hadoop_nodemanager_ram: "256" # 1024
 
 # Yarn scheduler minimum vcores
-yarn_min_cpu: "1" #2
+yarn_min_cpu: "1" # 2
 
 # Yarn scheduler maximum vcores
-yarn_max_cpu: "1" #2
+yarn_max_cpu: "1" # 2
 
 # Yarn scheduler minimum-allocation-mb RAM
-yarn_min_ram: "256" #512
+yarn_min_ram: "256" # 512
 
 # Yarn scheduler maximum-allocation-mb RAM
-yarn_max_ram: "256" #1024
+yarn_max_ram: "256" # 1024
 
 # Spark version
 spark_version: "1.4.0"

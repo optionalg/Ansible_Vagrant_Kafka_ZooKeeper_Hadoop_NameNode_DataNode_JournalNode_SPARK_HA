@@ -9,6 +9,9 @@ zookeeper_user: "zookeeper"
 # Zookeeper path
 zookeeper_path: "/usr/local/zookeeper"
 
+# tar path
+zookeeper_tar: "/usr/local/zookeeper-{{ zookeeper_version }}"
+
 # Zookeeper dataDir
 zookeeper_dataDir: "/usr/local/zookeeper/dataDir"
 
