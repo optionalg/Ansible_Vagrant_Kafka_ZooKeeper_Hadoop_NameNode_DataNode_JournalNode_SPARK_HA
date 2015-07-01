@@ -19,8 +19,8 @@
 # create a "{{ kafka_path }}" directory if it doesn't exist
 - file: path={{ item }} state=directory
   with_items:
-    - {{ kafka_path }}
-    - {{ kafka_logdirs }} # TEST
+    - "{{ kafka_path }}"
+    - "{{ kafka_logdirs }}" # TEST
   tags:
      - kafka
 
