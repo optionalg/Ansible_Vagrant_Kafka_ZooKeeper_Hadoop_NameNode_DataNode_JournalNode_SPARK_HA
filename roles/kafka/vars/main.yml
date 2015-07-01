@@ -5,6 +5,9 @@ kafka_version: "0.8.2.1"
 # Kafka user name
 kafka_user: "kafka"
 
+# Kafka Prefix
+kafka_prefix: "/usr/local"
+
 # Kafka path
 kafka_path: "/usr/local/kafa"
 

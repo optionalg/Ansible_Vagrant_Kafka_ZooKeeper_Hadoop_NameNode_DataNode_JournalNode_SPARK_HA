@@ -23,7 +23,11 @@
     - hadoop
 
 # Download and Unarchive a Hadoop tar file
-- unarchive: src=http://apache.mirrors.spacedump.net/hadoop/common/stable/hadoop-{{ hadoop_version }}.tar.gz dest={{ hadoop_tar }} copy=no
+- get_url: url=http://apache.mirrors.spacedump.net/hadoop/common/stable/hadoop-{{ hadoop_version }}.tar.gz dest={{ hadoop_prefix }}/hadoop-{{ hadoop_version }}.tar.gz
+  tags:
+    - hadoop
+
+- unarchive: src={{ hadoop_prefix}}/hadoop-{{ hadoop_version }}.tar.gz dest={{ hadoop_tar }} copy=no
   tags:
     - hadoop
 
@@ -46,7 +50,7 @@
 
 # Create Soft link for "{{ hadoop_path }}"-"{{ hadoop_version }}" --> "{{ hadoop_path }}"
 - name: Create symlink
-  file: src={{ hadoop_path }}-{{ hadoop_version }} dest={{ hadoop_path }} state=link
+  file: src={{ hadoop_path }}-{{ hadoop_version }} dest={{ hadoop_path }} state=link force=yes
   tags:
     - hadoop
 

@@ -6,6 +6,9 @@ zookeeper_version: "3.4.6"
 # Zookeeper user name
 zookeeper_user: "zookeeper"
 
+# Zookeeper prefix
+zookeeper_prefix: "/usr/local"
+
 # Zookeeper path
 zookeeper_path: "/usr/local/zookeeper"
 

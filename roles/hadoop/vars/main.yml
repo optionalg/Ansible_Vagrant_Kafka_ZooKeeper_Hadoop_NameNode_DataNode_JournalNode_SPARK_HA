@@ -6,6 +6,9 @@ hadoop_version: "2.6.0"
 # Hadoop user name
 hadoop_user: "hadoop"
 
+# Hadoop prefix
+hadoop_prefix: "/usr/local"
+
 # Hadoop path
 hadoop_path: "/usr/local/hadoop"
 

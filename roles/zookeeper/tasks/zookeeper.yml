@@ -27,13 +27,17 @@
      - zookeeper
 
 # Download and Unarchive a ZooKeeper tar file
-- unarchive: src=http://archive.apache.org/dist/zookeeper/stable/zookeeper-{{ zookeeper_version }}.tar.gz dest={{ zookeeper_tar }} copy=no
+- get_url: url=http://archive.apache.org/dist/zookeeper/stable/zookeeper-{{ zookeeper_version }}.tar.gz dest={{ zookeeper_prefix }}/zookeeper-{{ zookeeper_version }}.tar.gz
+  tags:
+     - zookeeper
+
+- unarchive: src={{ zookeeper_prefix }}/zookeeper-{{ zookeeper_version }}.tar.gz dest={{ zookeeper_tar }} copy=no
   tags:
      - zookeeper
 
 # Create Soft link for "{{ zookeeper_path }}"-"{{ zookeeper_version }}" --> "{{ zookeeper_path }}"
 - name: Create symlink
-  file: src={{ zookeeper_path }}-{{ zookeeper_version }} dest={{ zookeeper_path }} state=link
+  file: src={{ zookeeper_path }}-{{ zookeeper_version }} dest={{ zookeeper_path }} state=link force=yes
   tags:
      - zookeeper
 
