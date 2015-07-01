@@ -17,7 +17,7 @@
      - zookeeper
 
 # Download and Unarchive a ZooKeeper tar file
-- unarchive: src=http://archive.apache.org/dist/zookeeper/stable/zookeeper-{{ zookeeper_version }}.tar.gz dest={{ zookeeper_path }}-{{ zookeeper_version }} copy=no
+- unarchive: src=http://archive.apache.org/dist/zookeeper/stable/zookeeper-{{ zookeeper_version }}.tar.gz dest={{ zookeeper_path }} copy=no
   tags:
      - zookeeper
 

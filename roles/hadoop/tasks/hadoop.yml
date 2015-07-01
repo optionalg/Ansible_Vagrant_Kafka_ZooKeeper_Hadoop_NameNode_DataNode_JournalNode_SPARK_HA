@@ -15,7 +15,7 @@
     - hadoop
 
 # Download and Unarchive a Hadoop tar file
-- unarchive: src=http://apache.mirrors.spacedump.net/hadoop/common/stable/hadoop-{{ hadoop_version }}.tar.gz dest={{ hadoop_path }}-{{ hadoop_version }} copy=no
+- unarchive: src=http://apache.mirrors.spacedump.net/hadoop/common/stable/hadoop-{{ hadoop_version }}.tar.gz dest={{ hadoop_path }} copy=no
   tags:
     - hadoop
 

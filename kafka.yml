@@ -1,6 +1,6 @@
 ---
-# file: hadoop.yml
-- hosts: Hadoop
+# file: Kafka.yml
+- hosts: Kafka
   roles:
     - common
     - kafka
